@@ -16,7 +16,7 @@ import rml.model.vo.User;
 import rml.service.UserServiceI;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring.xml","classpath:spring-hibernate.xml" })
+@ContextConfiguration(locations = { "classpath:spring.xml" })
 public class TestSpring {
 
 	private static final Logger logger = Logger.getLogger(TestSpring.class);
