@@ -7,14 +7,18 @@
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- spring mvc controller -->
-	<context:component-scan base-package="rml.controller" />
-
+	<context:component-scan base-package="rml.*" />
+	<mvc:annotation-driven/>
+    <mvc:resources location="/WEB-INF/swagger-ui/" mapping="/swagger/**"/>
+    <!-- 将我们在上面实现的类在这里声明 -->
+    <bean class="rml.swagger.SwaggerConfig"></bean>
+    
 	<!-- Spring MVC JSON -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -48,11 +52,11 @@
 	</bean> 
 	
 	<!-- interceptor -->
-	<mvc:interceptors>
+	<!-- <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<bean class="rml.interceptors.SecurityInterceptor">
-				<!-- exclude urls -->
+				exclude urls
 				<property name="excludeUrls">
 					<list>
 						<value>/authController/doNotNeedSession_tree</value>
@@ -73,6 +77,6 @@
 				</property>
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 
 </beans>

@@ -122,6 +122,10 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
 		<url-pattern>*.xls</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
@@ -139,8 +143,8 @@
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.pdf</url-pattern>
-	</servlet-mapping>
-
+	</servlet-mapping>	
+	
 	<!-- session -->
 	<session-config>
 		<session-timeout>30</session-timeout>

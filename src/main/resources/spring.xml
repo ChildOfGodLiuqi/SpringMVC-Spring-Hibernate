@@ -14,9 +14,12 @@
 
 	<!-- spring config -->
 	<!-- <context:property-placeholder location="classpath:config.properties" /> -->
-	 <context:annotation-config/>  
+	<!-- 扫描类包，将标注Spring注解的类自动转化为Bean，同时完成Bean的注入 -->
+ 
 	<!-- 扫描包 -->
 	<context:component-scan base-package="rml.*"/>
+	<!-- swagger restfull -->
+	 <mvc:default-servlet-handler />
 	<!-- 从外部的配置文件中，读取数据库连接的信息 -->
 	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
